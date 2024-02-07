@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C6998AA2B7390BD00AEB9A3 /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6998A92B7390BD00AEB9A3 /* NetworkServices.swift */; };
+		0C6998AC2B73912700AEB9A3 /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6998AB2B73912700AEB9A3 /* URLHandler.swift */; };
 		0CB0BBD82B72585300AB52C0 /* weatherappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB0BBD72B72585300AB52C0 /* weatherappApp.swift */; };
 		0CB0BBDA2B72585300AB52C0 /* WeatherHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB0BBD92B72585300AB52C0 /* WeatherHomeView.swift */; };
 		0CB0BBDC2B72585400AB52C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CB0BBDB2B72585400AB52C0 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C6998A92B7390BD00AEB9A3 /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
+		0C6998AB2B73912700AEB9A3 /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
 		0CB0BBD42B72585300AB52C0 /* weatherapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CB0BBD72B72585300AB52C0 /* weatherappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherappApp.swift; sourceTree = "<group>"; };
 		0CB0BBD92B72585300AB52C0 /* WeatherHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHomeView.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 		0CDCF9392B7290AC00DB40F2 /* NewtorkManager */ = {
 			isa = PBXGroup;
 			children = (
+				0C6998A92B7390BD00AEB9A3 /* NetworkServices.swift */,
+				0C6998AB2B73912700AEB9A3 /* URLHandler.swift */,
 			);
 			path = NewtorkManager;
 			sourceTree = "<group>";
@@ -326,12 +332,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FDA244B2B72D01D00621CED /* WeatherGrid.swift in Sources */,
+				0C6998AA2B7390BD00AEB9A3 /* NetworkServices.swift in Sources */,
 				0FDA24492B72CF9E00621CED /* ForecastList.swift in Sources */,
 				0CDCF93F2B72975700DB40F2 /* Current.swift in Sources */,
 				0FDA244D2B72D07E00621CED /* WeatherGridItem.swift in Sources */,
 				0CDCF9582B72AFEA00DB40F2 /* ForecastRow.swift in Sources */,
 				0CB0BBDA2B72585300AB52C0 /* WeatherHomeView.swift in Sources */,
 				0CDCF9412B72977100DB40F2 /* Location.swift in Sources */,
+				0C6998AC2B73912700AEB9A3 /* URLHandler.swift in Sources */,
 				0CB0BBD82B72585300AB52C0 /* weatherappApp.swift in Sources */,
 				0CDCF9432B72978100DB40F2 /* Forecast.swift in Sources */,
 				0CDCF9562B72AFD700DB40F2 /* CurrentLocationWeather.swift in Sources */,

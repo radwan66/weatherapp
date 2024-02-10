@@ -18,6 +18,7 @@ class URLHandler : URLHandlerProtocol{
     var latitude = 0.0
     var separator = " , "
     var condition = "&days=3&alerts=no"
+    var locManager:CLLocationManager?
     var coordinates : String{
         
         get{
@@ -34,17 +35,21 @@ class URLHandler : URLHandlerProtocol{
         }
     }
     
+    init(){
+   
+       locManager = CLLocationManager()
+       self.getLocation()
+   }
     func getLocation(){
-        
-        var locManager = CLLocationManager()
-        
-        locManager.requestWhenInUseAuthorization()
+        locManager?.requestWhenInUseAuthorization()
         var currentLocation: CLLocation!
-        if locManager.authorizationStatus == .authorizedWhenInUse || locManager.authorizationStatus == .authorizedAlways {
-            currentLocation = locManager.location
+        if locManager?.authorizationStatus == .authorizedWhenInUse || locManager?.authorizationStatus == .authorizedAlways {
+            currentLocation = locManager?.location
         }
-        self.latitude = currentLocation.coordinate.latitude
-        self.longitude = currentLocation.coordinate.longitude
+        
+        self.latitude = currentLocation?.coordinate.latitude ?? 0.0
+        self.longitude = currentLocation?.coordinate.longitude ?? 0.0
+        
     }
     
     func getUrl() -> String{

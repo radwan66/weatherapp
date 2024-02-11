@@ -55,15 +55,15 @@ struct WeatherHomeView: View {
     }
     
     func LoadingViewModel(){
-        
+       print ("in loading func /////////////")
         self.weatherViewModel?.bindData =
         {
-            
+         print ("in bind data ///////////////")
             self.weatherModel = weatherViewModel?.getWeatherData()
             print(self.weatherModel?.location?.name ?? "without name")
         }
         
-        weatherViewModel?.bindWeatherInfo()
+        self.weatherViewModel?.bindWeatherInfo()
     }
 
 }

@@ -8,7 +8,7 @@
 import Foundation
 class ForeCastViewModel{
     
-    var bindData : (()->(Void))?
+    var bindData : ()-> Void = {}
     var HandleConnection : NetworkServicesDelegate
     var choosenDay:ForecastDayModel?
     
@@ -23,9 +23,10 @@ class ForeCastViewModel{
     var weatherInfo: WeatherModel?  {
         
         didSet{
-            if let validHander =  bindData {
-                validHander()
-            }
+          //  if let validHander =  bindData {
+               // validHander()
+            
+            bindData()
         }
     }
     

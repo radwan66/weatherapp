@@ -9,23 +9,23 @@ import SwiftUI
 
 struct WeatherGrid: View {
     
-    private let adaptiveColumn = [GridItem(.adaptive(minimum: 150))]
-    
-        var body: some View {
-    
-                LazyVGrid(columns: adaptiveColumn, spacing: 50) {
-                    
-                    WeatherGridItem(title: "VISIBILITY", subTitle: "String")     
+    var weatherViewModel : ForeCastViewModel?
 
-                    WeatherGridItem(title: "HUMIDITY", subTitle: "String")
-                    WeatherGridItem(title: "FEELS LIKE", subTitle: "String")
-                    WeatherGridItem(title: "PRESSURE", subTitle: "String")
-                    
-                }
-
-            
+        private let adaptiveColumn = [GridItem(.adaptive(minimum: 150))]
+        
+            var body: some View {
+        
+                    LazyVGrid(columns: adaptiveColumn, spacing: 50) {
+                        
+                        WeatherGridItem(title: "VISIBILITY", subTitle: (weatherViewModel?.getVisibility() ?? "0 KM") + " KM")
+                        WeatherGridItem(title: "HUMIDITY", subTitle: (weatherViewModel?.getHumidity() ?? "0")+" %")
+                        
+                        WeatherGridItem(title: "FEELS LIKE", subTitle:weatherViewModel?.getFeelsLike() ?? "0")
+                        
+                        WeatherGridItem(title: "PRESSURE", subTitle: weatherViewModel?.getPressure() ?? "0")
+                    }
+        }
     }
-}
 
 #Preview {
     WeatherGrid()

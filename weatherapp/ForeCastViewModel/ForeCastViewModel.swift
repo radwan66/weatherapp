@@ -31,7 +31,7 @@ class ForeCastViewModel{
     
     func bindWeatherInfo(){
         
-        HandleConnection.fetchAPI( complitionHandler: { (data:WeatherModel?, error: Error?) in
+        HandleConnection.fetchDataFromAPI( complitionHandler: { (data:WeatherModel?, error: Error?) in
             if let CameData = data {
                 self.weatherInfo = CameData
             }else {
@@ -88,7 +88,7 @@ class ForeCastViewModel{
     }
     
     func getDay(forecastDayModel:ForecastDayModel)->String{
-        return DateHelper.getDateDayName(stringDate: forecastDayModel.date ?? "0-0-0 0:0:0")
+        return DateChecker.getDayByName(stringDate: forecastDayModel.date ?? "0-0-0 0:0:0")
     }
     
     func getDayHigh(forecastDayModel:ForecastDayModel)-> String{
@@ -113,7 +113,7 @@ class ForeCastViewModel{
             
             let hoursAfterNow = choosenDay?.hours?.filter({
                 
-                DateHelper.isHourInStringDateAfterNow(stringDate: $0.time ?? "0-0-0 0:0" )
+                DateChecker.HoursAfterNow(stringDate: $0.time ?? "0-0-0 0:0" )
             
             }) ?? []
 
@@ -127,7 +127,7 @@ class ForeCastViewModel{
     
     func getForecastHour(hour:HourModel) -> String {
         
-        return DateHelper.getHourFromDate(stringDate:hour.time ?? "0-0-0 0:0")
+        return DateChecker.getHourDate(stringDate:hour.time ?? "0-0-0 0:0")
     }
     
     func getForecastHourURL(hour:HourModel)->String{

@@ -11,17 +11,22 @@ struct WeatherGridItem: View {
     
     let title:String
     let subTitle:String
-    
     var body: some View {
-        VStack{
-            Text("\(title)")
-                .font(.system(size: 10, weight: .regular)).padding(.bottom,10).foregroundColor(Color.white)
-        
-            Text("\(subTitle)")
-                .font(.system(size: 20, weight: .semibold)).foregroundColor(Color.white)
+            VStack{
+                
+                Text("\(title)")
+                    .font(.system(size: 13, weight: .regular))
+                    .foregroundColor(ColorChecker.getTextColor())
+                    .padding(.bottom,10)
+            
+                Text("\(subTitle)")
+                    .font(.system(size: 30, weight: .semibold))
+                    .foregroundColor(ColorChecker.getTextColor())
+            }
         }
     }
-}
+
+
 
 
 

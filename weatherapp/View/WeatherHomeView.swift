@@ -21,8 +21,8 @@ struct WeatherHomeView: View {
                     ImageChecker.backgroundImage()
                         .resizable()
                         .frame(
-                            width:UIScreen.screenWidth
-                            ,height:UIScreen.screenHeight)
+                            width:UIScreen.main.bounds.size.width
+                            ,height:UIScreen.main.bounds.size.height)
                         .ignoresSafeArea()
                     
                     VStack{
@@ -70,9 +70,4 @@ struct WeatherHomeView: View {
 
 #Preview {
     WeatherHomeView()
-}
-extension UIScreen{
-   static let screenWidth = UIScreen.main.bounds.size.width
-   static let screenHeight = UIScreen.main.bounds.size.height
-   static let screenSize = UIScreen.main.bounds.size
 }

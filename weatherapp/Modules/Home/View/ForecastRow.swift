@@ -9,34 +9,51 @@ import SwiftUI
 
 struct ForecastRow: View {
     let day:String
-    let imageName:String
-    let highestTempreture:String
+    let imageURL:String
     let lowestTempreture:String
+    let highestTempreture:String
 
     
     var body: some View {
         VStack{
             Divider()
                .frame(minHeight: 1.5)
-                  .overlay(Color.black)
-            HStack{
-                
-                Text("\(day)").font(.system(size: 25, weight: .semibold))
-                Text("  ")
-                Image("\(imageName)").resizable().frame(width: 30,height: 40)
-                Text("  ")
-                Text("\(lowestTempreture)")
-                    .font(.system(size: 25, weight: .semibold))
-                Text("-")
-                    .font(.system(size: 25, weight: .semibold))
-                Text("\(highestTempreture)")
-                    .font(.system(size: 25, weight: .semibold))
-            }
-            
-        }
-    }
+                  .overlay(ColorChecker.getTextColor())
+       
+           HStack{
+               
+               Text("\(day)")
+                   .font(.system(size: 20, weight: .semibold)).frame(width: 60)
+                   .foregroundColor(ColorChecker.getTextColor())
+
+
+               AsyncImage(url: URL(string:imageURL)) { item in
+                   
+                   item.image?.resizable().frame(width: 30,height: 40)
+               
+               }
+               Text("  ")
+               
+               Text(lowestTempreture)
+                   .font(.system(size: 22, weight: .semibold))
+                   .foregroundColor(ColorChecker.getTextColor())
+
+               Text("-")
+                   .font(.system(size: 22, weight: .semibold))
+                   .foregroundColor(ColorChecker.getTextColor())
+
+               Text(highestTempreture)
+                   .font(.system(size: 22, weight: .semibold))
+                   .foregroundColor(ColorChecker.getTextColor())
+
+
+
+           }
+
+       }
+   }
 }
 
 #Preview {
-    ForecastRow(day: "today", imageName: "cloudy", highestTempreture: "5", lowestTempreture: "21")
+    ForecastRow(day: "today", imageURL: "cloudy", lowestTempreture: "5", highestTempreture: "21")
 }

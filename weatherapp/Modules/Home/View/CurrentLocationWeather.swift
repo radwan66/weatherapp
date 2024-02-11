@@ -8,26 +8,45 @@
 import SwiftUI
 
 struct CurrentLocationWeather: View {
+    var weatherViewModel : ForeCastViewModel?
     var body: some View {
         VStack{
-            Text("Cairo")
+            Text(weatherViewModel?.getCity() ?? "0")
                 .font(.system(size: 20, weight: .bold))
-            Text("21")
+                .foregroundColor(ColorChecker.getTextColor())
+            
+            Text(weatherViewModel?.getTemp() ?? "0")
                 .font(.system(size: 50, weight: .regular))
-            Text("PartlyCloudy")
+                .foregroundColor(ColorChecker.getTextColor())
+            
+            Text(weatherViewModel?.getchecking() ?? "no data")
                 .font(.system(size: 20, weight: .regular))
+                .foregroundColor(ColorChecker.getTextColor())
+            
             HStack{
                 
-                Text("H : 27")
-                    .font(.system(size: 20, weight: .regular))
+                Text("H :" + (weatherViewModel?.getHighTemp() ?? "0"))
+                     .foregroundColor(ColorChecker.getTextColor())
                 
-                Text("L : 15")
+                Text("L : " + (weatherViewModel?.getLowTemp() ?? "0"))
                     .font(.system(size: 20, weight: .regular))
+                    .foregroundColor(ColorChecker.getTextColor())
             }
-            Image("cloudy").resizable().frame(width: 80,height: 80)
+            
+            AsyncImage(url: URL(string:weatherViewModel?.getImage() ?? "/")) { item in
+                
+                item.image?.resizable().frame(width: 70,height: 70).scaleEffect(2)
+            
+            }
+
+
         }
+       
+        
+
     }
 }
+
 
 #Preview {
     CurrentLocationWeather()
